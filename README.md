@@ -1,3 +1,8 @@
+
+![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+![Alt text](C:\Users\luca_\OneDrive\Escritorio\Programming\React\portfolio-react\src\images\project-one.png?raw=true "Title")
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
