@@ -1,6 +1,6 @@
 
 ![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
-![Alt text](C:/Users/luca_/OneDrive/Escritorio//rogramming/React/portfolio-react/src/images/project-one.png?raw=true "Title")
+![Alt text](C:/Users/luca_/OneDrive/Escritorio/rogramming/React/portfolio-react/src/images/project-one.png?raw=true "Title")
 
 
 # Getting Started with Create React App
