@@ -8,12 +8,27 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
     const [count,setCount] = useState(0)
+    const [record,setRecord] = useState(0)
+    console.log();
     
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
         const firstValue = dice[0].value
         const allSameValue = dice.every(die => die.value === firstValue)
+
+        
+        if (allHeld && !allSameValue) alert(`Warning: All the numbers must be equal`);
         if (allHeld && allSameValue) {
+            if (record === 0) {
+                setRecord(count)
+                localStorage.setItem('record', count);
+            }
+            else {
+                if (count < record) {
+                    setRecord(count)
+                    localStorage.setItem('record', count);
+                }
+            }
             setTenzies(true)
         }
     }, [dice])
@@ -43,15 +58,7 @@ export default function App() {
                     generateNewDie()
             }))
         } else {
-            if (localStorage.getItem('record') === 0) {
-                localStorage.setItem('record',count)
-            }
-            else {
-                if (count < localStorage.getItem('record')) {
-                    localStorage.setItem('record',count)
-                    let help = localStorage.getItem('record')
-                }
-            }
+            
             setCount(0)
             setTenzies(false)
             setDice(allNewDice())
@@ -85,7 +92,7 @@ export default function App() {
             </div>
             <div>
               <span><strong>CLICKS:</strong> {count} - </span>
-              <span><strong>RECORD:</strong> {localStorage.getItem('record') || 0}</span>
+              <span><strong>RECORD:</strong> {localStorage.getItem('record')}</span>
             </div>
             <button 
                 className="roll-dice" 
