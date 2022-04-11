@@ -85,7 +85,7 @@ export default function App() {
             </div>
             <div>
               <span><strong>CLICKS:</strong> {count} - </span>
-              <span><strong>RECORD:</strong> {localStorage.getItem('record')}</span>
+              <span><strong>RECORD:</strong> {localStorage.getItem('record') || 0}</span>
             </div>
             <button 
                 className="roll-dice" 
