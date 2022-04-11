@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Die from "./Die"
 import {nanoid} from "nanoid"
+import './/style.css'
 
 export default function App() {
 
@@ -79,7 +80,6 @@ export default function App() {
             Click each die to freeze it at its current value between rolls.</p>
             <div className="dice-container">
                 {diceElements}
-                
             </div>
             <div>
               <span>CLICKS: {count} - </span>
