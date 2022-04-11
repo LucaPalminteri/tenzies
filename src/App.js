@@ -46,7 +46,7 @@ export default function App() {
     
     function allNewDice() {
         const newDice = []
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 12; i++) {
             newDice.push(generateNewDie())
         }
         return newDice
@@ -87,7 +87,7 @@ export default function App() {
     
     return (
         <main>
-            {tenzies && <Confetti/>}
+            {tenzies && <Confetti width={window.innerWidth} height={window.innerHeight - 5}/>}
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. 
             Click each die to freeze it at its current value between rolls.</p>
@@ -95,8 +95,8 @@ export default function App() {
                 {diceElements}
             </div>
             <div>
-              <span><strong>CLICKS:</strong> {count} - </span>
-              <span><strong>RECORD:</strong> {localStorage.getItem('record')}</span>
+                <span><strong>ROLLS:</strong> {count}</span>
+                <span><strong>RECORD:</strong> {localStorage.getItem('record')}</span>
             </div>
             <button 
                 className="roll-dice" 
