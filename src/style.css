@@ -14,7 +14,7 @@ body {
 
 main {
     background-color: #F5F5F5;
-    height: 400px;
+    height: auto;
     max-width: 800px;
     border-radius: 5px;
     padding: 20px;
