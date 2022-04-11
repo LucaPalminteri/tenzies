@@ -8,7 +8,6 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
     const [count,setCount] = useState(0)
-    const [record,setRecord] = useState(0)
     
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -34,9 +33,7 @@ export default function App() {
         }
         return newDice
     }
-
     
-    let c
     function rollDice() {
         setCount(count+1)
         if(!tenzies) {
@@ -46,11 +43,16 @@ export default function App() {
                     generateNewDie()
             }))
         } else {
-          setCount(0)
-          let rec = count;
-          localStorage.setItem('a',rec)
-          const c = localStorage.getItem('a')
-          console.log(c);
+            if (localStorage.getItem('record') === 0) {
+                localStorage.setItem('record',count)
+            }
+            else {
+                if (count < localStorage.getItem('record')) {
+                    localStorage.setItem('record',count)
+                    let help = localStorage.getItem('record')
+                }
+            }
+            setCount(0)
             setTenzies(false)
             setDice(allNewDice())
         }
@@ -82,8 +84,8 @@ export default function App() {
                 {diceElements}
             </div>
             <div>
-              <span>CLICKS: {count} - </span>
-              <span>RECORD: {c}</span>
+              <span><strong>CLICKS:</strong> {count} - </span>
+              <span><strong>RECORD:</strong> {localStorage.getItem('record')}</span>
             </div>
             <button 
                 className="roll-dice" 
